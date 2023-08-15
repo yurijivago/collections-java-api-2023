@@ -7,7 +7,7 @@ public class CarrinhoDeCompras {
     //atributo
     List<Item> listaDeItens;
 
-    public CarrinhoDeCompras(){
+    public CarrinhoDeCompras() {
         listaDeItens = new ArrayList<>();
     }
 
@@ -43,10 +43,7 @@ public class CarrinhoDeCompras {
         for (Item item : listaDeItens) {
             valorTotal += item.getPreco() * item.getQuantidade();
         }
-
-
         return valorTotal;
-
     }
 
     /* exibirItens(): Exibe todos os itens presentes no carrinho, mostrando seus nomes, preços e

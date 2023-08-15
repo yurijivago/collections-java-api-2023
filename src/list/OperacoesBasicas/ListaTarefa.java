@@ -11,26 +11,35 @@ public class ListaTarefa {
         this.tarefaList = new ArrayList<>();
     }
 
+    /*adicionarTarefa(String descricao): Adiciona uma nova tarefa à lista com a descrição fornecida.*/
     public void adicionarTerefa(String descricao){
         tarefaList.add(new Tarefa(descricao));
     }
 
+    /*removerTarefa(String descricao): Remove uma tarefa da lista com base em sua descrição.*/
     public void removerTerefa(String descricao){
         List<Tarefa> tarefasParaRemover = new ArrayList<>();
-
-        for(Tarefa tarefa: tarefaList){
-            if(tarefa.getDescricao().equals(descricao))
-                tarefasParaRemover.add(tarefa);
+        if (tarefaList.isEmpty()) {
+            System.out.println("A lista está vazia, logo não pode ter nenhum item excluído.");
+        } else {
+            for(Tarefa tarefa: tarefaList){
+                if(tarefa.getDescricao().equals(descricao))
+                    tarefasParaRemover.add(tarefa);
+            }
+            tarefaList.removeAll(tarefasParaRemover);
         }
-
-        tarefaList.removeAll(tarefasParaRemover);
     }
 
+    /*obterNumeroTotalTarefas(): Retorna o número total de tarefas na lista.*/
     public int obterNumeroTotalTarefas(){
         return tarefaList.size();
     }
 
+    /*obterDescricoesTarefas(): Retorna uma lista contendo a descrição de todas as tarefas na lista.*/
     public void obterDescricoesTarefas(){
+        if (tarefaList.isEmpty()) {
+            throw new RuntimeException("A lista está vazia!");
+        }
         System.out.println(tarefaList);
     }
 
